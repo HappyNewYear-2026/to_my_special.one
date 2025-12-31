@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0b0d2b, #020111);
+  font-family: Poppins, system-ui, sans-serif;
+  color: white;
+}
+
+canvas {
+  position: fixed;
+  inset: 0;
+}
+
+/* ❄ Snow layer */
+#snow {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 🌸 Top Circle */
+.circle {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: rgb(206, 213, 215);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(34, 130, 152, 0.934);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.circle img {
+  width: 160px;
+}
+
+/* 💬 Message box */
+.message-box {
+  position: absolute;
+  top: 230px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 450px;
+  padding: 36px 32px 32px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  box-shadow: 0 0 45px rgba(255,255,255,0.25);
+  text-align: center;
+  z-index: 2;
+}
+
+/* 🌟 glowing effeft on 2026 */
+.glowing-title {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #007bff, 0 0 20px #007bff;
+  color: #007bff;
+}
+
+/* 🧢 Santa cap */
+.santa-cap {
+  position: absolute;
+  top: -40px;
+  right: -32px;
+  width: 80px;
+  opacity: 0;
+  transform: translateY(-20px) rotate(25deg);
+  transition: 0.8s ease;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 12px rgba(79, 72, 72, 0.827));
+}
+
+.santa-cap.show {
+  opacity: 10;
+  transform: translateY(0) rotate(25deg);
+}
+
+/* ✍ Typing text */
+#message {
+  white-space: pre-line;
+  line-height: 1.0;
+}
+
+/* 🎁 Button */
+.open-btn {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #ffffff, #dcdcff);
+  font-size: 1.1rem;
+  transition: 1.5s;
+  z-index: 2;
+  cursor: pointer;
+  color: #0b0d2b;
+  background: linear-gradient(135deg, #fff, #dcdcff);
+  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+  transition: 0.3s;
+}
+
+.open-btn:hover {
+  transform: translateX(-50%) scale(1.08);
+  box-shadow: 0 0 30px rgba(255,255,255,0.7);
+}
+
+.open-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -55%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}

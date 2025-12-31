@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Made with Shiddat & a good soul</title>
+  <link rel="shortcut icon" href="./icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body style="background: linear-gradient(to bottom, #000000, #000000e0), url(./r.jpg); height: 100vh;">
+  <div id="drag-container">
+    <div id="spin-container">
+      <img src="./images/r1.png" alt="" />
+      <img src="./images/r2.png" alt="" />
+      <img src="./images/r3.png" alt="" />
+      <img src="./images/r4.png" alt="" />
+      <img src="./images/r5.png" alt="" />
+      <img src="./images/r6.png" alt="" />
+      <img src="./images/r7.png" alt="" />
+      <img src="./images/r8.png" alt="" />
+      <img src="./images/r9.png" alt="" />
+      <img src="./images/r10.png" alt="" />
+      <img src="./images/r11.png" alt="" />
+      <p>Happy New Year🎂</p>
+    </div>
+    <div id="ground"></div>
+  </div>
+  <div id="ReplyBtn">
+  <a href="https://wa.me/919155150110" target="_blank">
+    <span class="twinkle-emoji">💌</span>
+  </a>
+</div>
+
+  <div id="music-container"></div>
+
+  <div id="canva">
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <audio id="myAudio" autoplay playsinline>
+    <source src="music/setlove.mp3" type="audio/mpeg" />
+    <source src="music/setlove.ogg" type="audio/ogg" />
+  </audio>
+
+  <script src="main.js"></script>
+
+  <script>
+    window.onload = function () {
+      var audio = document.getElementById("myAudio");
+      audio.muted = false;
+      audio.play().catch(function (e) {
+        console.log("Audio playback failed:", e);
+      });
+
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      function random(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      function Firework(x, y) {
+        this.x = x;
+        this.y = y;
+        this.radius = random(2, 4);
+        this.color = `hsl(${random(0, 360)}, 100%, 50%)`;
+        this.vx = random(-3, 3);
+        this.vy = random(-3, 3);
+        this.life = 100;
+      }
+
+      Firework.prototype.draw = function () {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      };
+
+      Firework.prototype.update = function () {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.life--;
+      };
+
+      function Star() {
+        this.x = random(0, canvas.width);
+        this.y = random(0, canvas.height);
+        this.size = random(4, 8);
+        this.color = `hsl(${random(0, 360)}, 100%, 70%)`;
+        this.opacity = 1;
+        this.vx = random(-0.5, 0.5);
+        this.vy = random(-0.5, 0.5);
+        this.angle = 0;
+        this.rotateSpeed = random(-0.05, 0.05);
+      }
+
+      Star.prototype.draw = function () {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        ctx.globalAlpha = this.opacity;
+
+        // Glow effect
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        ctx.fillStyle = this.color;
+
+        // Draw star shape
+        ctx.beginPath();
+        const spikes = 5;
+        const outerRadius = this.size;
+        const innerRadius = this.size / 2;
+        for (let i = 0; i < spikes * 2; i++) {
+          const radius = i % 2 === 0 ? outerRadius : innerRadius;
+          const angle = (i * Math.PI) / spikes;
+          ctx.lineTo(Math.cos(angle) * radius, Math.sin(angle) * radius);
+        }
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.restore();
+        ctx.globalAlpha = 1;
+      };
+
+      Star.prototype.update = function () {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.angle += this.rotateSpeed;
+        this.opacity -= 0.0002;
+      };
+
+      let fireworks = [];
+      let stars = [];
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (Math.random() < 0.1) {
+          fireworks.push(
+            new Firework(random(0, canvas.width), random(0, canvas.height))
+          );
+        }
+
+        if (Math.random() < 0.2) {
+          stars.push(new Star());
+        }
+
+        fireworks.forEach((firework, index) => {
+          firework.draw();
+          firework.update();
+          if (firework.life <= 0) {
+            fireworks.splice(index, 1);
+          }
+        });
+
+        stars.forEach((star, index) => {
+          star.draw();
+          star.update();
+          if (star.opacity <= 0) {
+            stars.splice(index, 1);
+          }
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    };
+  </script>
+</body>
+</html>
