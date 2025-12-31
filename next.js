@@ -76,7 +76,7 @@ animate();
 /* ⌨ TYPING TEXT */
 const title = " Happy New year ";
 const msg = `
-_____________________💝💖.🎂.💖💝_____________________
+_________💝💖.🎂.💖💝_________
 May this New Year bring you endless happiness ✨ Peace, love and success in your life 🌟
 Keep smiling and stay alwways be Happy..☺️
 
@@ -169,4 +169,5 @@ snow();
 function openSurprise() {
   window.location.href = "love/surprise.html";
 }
+
 
