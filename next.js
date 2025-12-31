@@ -88,7 +88,7 @@ I'm always there for you.😉
 For ever and ever and ever...♾️
 
 infinite+ Best wishes
-__________From the bottom of__________
+____From the bottom of____
  💖 My Heart 💖
  _💝💖.🎂.💖💝_`;
 
@@ -170,6 +170,7 @@ snow();
 function openSurprise() {
   window.location.href = "love/surprise.html";
 }
+
 
 
 
