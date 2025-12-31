@@ -19,7 +19,7 @@ canvas { position: fixed; inset: 0; }
 }
 
 .overlay h1 {
-  font-size: 3.2rem;
+  font-size: 2.8rem;
   text-shadow: 0 0 18px rgba(255,255,255,0.4);
 }
 
@@ -54,3 +54,4 @@ canvas { position: fixed; inset: 0; }
   from { opacity: 0; transform: translate(-50%, -55%); }
   to { opacity: 1; transform: translate(-50%, -50%); }
 }
+
