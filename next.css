@@ -51,7 +51,7 @@ canvas {
   top: 230px;
   left: 50%;
   transform: translateX(-50%);
-  width: 98%;
+  width: 80%;
   max-width: 450px;
   padding: 36px 32px 32px;
   background: rgba(255,255,255,0.08);
@@ -129,5 +129,6 @@ canvas {
   from { opacity: 0; transform: translate(-50%, -55%); }
   to { opacity: 1; transform: translate(-50%, -50%); }
 }
+
 
 
