@@ -76,7 +76,6 @@ animate();
 /* ⌨ TYPING TEXT */
 const title = " Happy New year ";
 const msg = `
-___💝💖.🎂.💖💝__
 
 May this New Year bring you endless happiness ✨ Peace, love and success in your life 🌟
 Keep smiling and stay alwways be Happy..☺️
@@ -90,7 +89,8 @@ For ever and ever and ever...♾️
 
 infinite+ Best wishes
 __________From the bottom of__________
- 💖 My Heart 💖`;
+ 💖 My Heart 💖
+ _💝💖.🎂.💖💝_`;
 
 let ti = 0, mi = 0;
 const element = document.getElementById("title");
@@ -170,6 +170,7 @@ snow();
 function openSurprise() {
   window.location.href = "love/surprise.html";
 }
+
 
 
 
