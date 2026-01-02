@@ -80,7 +80,7 @@ const msg = `
 May this New Year bring you endless happiness ✨ Peace, love and success in your life 🌟
 Keep smiling and stay alwways be Happy..☺️
 
-Everyone have red flags but we need to find,
+Everyone has red flags but we need to find,
 and work on own Green flags...👨🏻‍💻
 
 Remember....................!
@@ -170,6 +170,7 @@ snow();
 function openSurprise() {
   window.location.href = "love/surprise.html";
 }
+
 
 
 
