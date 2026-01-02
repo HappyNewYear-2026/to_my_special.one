@@ -81,7 +81,7 @@ May this New Year bring you endless happiness ✨ Peace, love and success in you
 Keep smiling and stay alwways be Happy..☺️
 
 Everyone has red flags but we need to find,
-and work on own Green flags...👨🏻‍💻
+and work on our own Green flag...👨🏻‍💻
 
 Remember....................!
 I'm always there for you.😉
@@ -170,6 +170,7 @@ snow();
 function openSurprise() {
   window.location.href = "love/surprise.html";
 }
+
 
 
 
